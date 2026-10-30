@@ -397,6 +397,30 @@ h2 {
 .cta-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 30px; }
 .cta-handle { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: rgba(255, 255, 255, .9); }
 
+/* ---------- Contact ---------- */
+.contact {
+  margin-top: 20px;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px 32px;
+  padding: clamp(24px, 4vw, 40px); border-radius: 24px;
+  background:
+    linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+    linear-gradient(120deg, rgba(255, 62, 138, .55), rgba(255, 138, 61, .3) 40%, rgba(255, 255, 255, .08) 70%) border-box;
+  border: 1px solid transparent;
+}
+.contact-icon {
+  width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; align-self: start;
+  background: linear-gradient(135deg, rgba(255, 62, 138, .18), rgba(255, 138, 61, .12));
+  color: #FF7A6A;
+}
+.contact-icon .i { width: 30px; height: 30px; }
+.contact h2 { font-size: clamp(28px, 3.4vw, 40px); }
+.contact-copy p:not(.eyebrow) { margin-top: 8px; color: var(--muted); }
+.contact-copy .contact-address { margin-top: 10px; font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; min-width: 0; }
+.contact-actions .btn { max-width: 100%; }
+.contact-actions .btn span { overflow: hidden; text-overflow: ellipsis; }
+button.btn { cursor: pointer; -webkit-appearance: none; appearance: none; }
+
 /* ---------- Footer ---------- */
 .footer { padding: 64px 0 40px; border-top: 1px solid var(--line); background: #090A0F; }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1.3fr; gap: 40px; }
@@ -430,6 +454,8 @@ h2 {
 @media (max-width: 1024px) {
   .labels { grid-template-columns: repeat(2, 1fr); }
   .about { grid-template-columns: 1fr; }
+  .contact { grid-template-columns: auto 1fr; }
+  .contact-actions { grid-column: 1 / -1; }
   .video-grid { grid-template-columns: repeat(2, 1fr); }
   .video-grid.featured .vcard:first-child { grid-column: 1 / -1; grid-row: auto; }
 }
@@ -452,6 +478,9 @@ h2 {
   .video-grid.featured .vcard:first-child .vtitle { font-size: 19px; }
   .video-grid.featured .vcard:first-child .vbody { padding: 16px 8px 8px; }
   .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .contact { grid-template-columns: minmax(0, 1fr); }
+  .contact-icon { width: 54px; height: 54px; border-radius: 15px; }
+  .contact-actions .btn { flex: 1 1 100%; }
   .cta-palm { opacity: .55; right: -110px; }
   .cta-sun { right: -40px; width: 220px; }
 }

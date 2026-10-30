@@ -226,6 +226,40 @@
     items.forEach((v, i) => grid.appendChild(videoCard(v, i === 0)));
   }
 
+  /* ---------- contact ---------- */
+  function copyEmail() {
+    const btn = document.getElementById("copy-email");
+    if (!btn) return;
+    const label = btn.querySelector("span");
+    const email = btn.dataset.email;
+
+    const fallbackCopy = () => {
+      const ta = document.createElement("textarea");
+      ta.value = email;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      ta.remove();
+      return ok;
+    };
+
+    let timer;
+    btn.addEventListener("click", async () => {
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(email);
+        ok = true;
+      } catch {
+        ok = fallbackCopy();
+      }
+      label.textContent = ok ? "Copied!" : email;
+      clearTimeout(timer);
+      timer = setTimeout(() => (label.textContent = "Copy address"), 2200);
+    });
+  }
+
   /* ---------- page behaviour ---------- */
   function navOnScroll() {
     const nav = document.getElementById("nav");
@@ -272,6 +306,7 @@
     { base: [270, 1010], crown: [340, 330], bend: -60, w0: 32, w1: 16, len: 220 },
   ]);
   renderVideos(window.VIDEOS);
+  copyEmail();
   navOnScroll();
   reveal();
 
