@@ -19,5 +19,5 @@
 */
 
 window.VIDEOS = [
-//   { link: "https://youtu.be/XXXXXXXXXXX", titolo: "Every GTA 6 Delay Explained Before It Finally Launches" },
+  { link: "https://youtu.be/KxLdwpkAiNU", titolo: "Every GTA 6 Delay Explained Before It Finally Launches" },
 ];
